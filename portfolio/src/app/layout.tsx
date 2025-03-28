@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-
+import CompHeader from "./components/CompHeader/CompHeader";
+import CompDarkMode from "./components/CompDarkMode/CompDarkMode";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-      >
+    <html lang="pt-br" className="light" suppressHydrationWarning>
+      <body className="transition-colors duration-200">
+        <CompHeader />
         {children}
       </body>
     </html>
