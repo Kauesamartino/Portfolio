@@ -4,7 +4,7 @@
     height: 80px;
     position: fixed;
     overflow: hidden;
-    &__container{
+    .container{
         display: flex;
         justify-content: space-between;
         align-items: center;
