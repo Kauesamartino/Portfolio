@@ -1,12 +1,5 @@
 import { useRef, useEffect } from "react";
 
-const POINTS = 80;
-const LINE_DISTANCE = 100;
-
-function randomBetween(a: number, b: number) {
-  return Math.random() * (b - a) + a;
-}
-
 type Point = {
   x: number;
   y: number;
@@ -14,7 +7,14 @@ type Point = {
   vy: number;
 };
 
-function distance(a: Point, b: Point) {
+const POINTS = 80;
+const LINE_DISTANCE = 100;
+
+function randomBetween(a: number, b: number) {
+  return Math.random() * (b - a) + a;
+}
+
+function distance(a: { x: number; y: number }, b: { x: number; y: number }) {
   return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
 }
 
@@ -53,7 +53,6 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
       }
 
-      // Linhas entre pontos
       ctx.lineWidth = 0.7;
       for (let i = 0; i < points.current.length; i++) {
         for (let j = i + 1; j < points.current.length; j++) {
@@ -70,12 +69,10 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
         }
       }
 
-      // Linha do mouse para pontos próximos (mesma cor das linhas)
       for (const p of points.current) {
-        const mousePoint: Point = { x: mouse.current.x, y: mouse.current.y, vx: 0, vy: 0 };
-        const d = distance(p, mousePoint);
+        const d = distance(p, mouse.current);
         if (d < LINE_DISTANCE) {
-          ctx.strokeStyle = `rgba(100,100,100,${0.25 * (1 - d / LINE_DISTANCE)})`;
+          ctx.strokeStyle = `rgba(100,100,100,${0.35 * (1 - d / LINE_DISTANCE)})`;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.current.x, mouse.current.y);
@@ -83,11 +80,10 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
         }
       }
 
-      // Pontos menores e discretos
       for (const p of points.current) {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 2, 0, Math.PI * 1);
-        ctx.fillStyle = "#888888ff";
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = "#888";
         ctx.fill();
       }
 
