@@ -71,7 +71,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
       }
 
       // Linha do mouse para pontos próximos (mesma cor das linhas)
-      for (let p of points.current) {
+      for (const p of points.current) {
         const mousePoint: Point = { x: mouse.current.x, y: mouse.current.y, vx: 0, vy: 0 };
         const d = distance(p, mousePoint);
         if (d < LINE_DISTANCE) {
