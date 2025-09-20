@@ -46,7 +46,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let p of points.current) {
+      for (const p of points.current) {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
