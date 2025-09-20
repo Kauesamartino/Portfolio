@@ -1,0 +1,38 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 90px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.bgCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+.personalInfo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  p {
+    font-size: 24px;
+    color: #222;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 48px;
+    color: #222;
+    font-weight: 700;
+  }
+}
