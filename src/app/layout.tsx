@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Layout/Header";
+import InteractiveBackground from "./components/interactiveBackground";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br" className="light" suppressHydrationWarning>
       <body className="transition-colors duration-200">
+        <InteractiveBackground />
         <Header />
-        {children}
+        <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
       </body>
     </html>
   );
