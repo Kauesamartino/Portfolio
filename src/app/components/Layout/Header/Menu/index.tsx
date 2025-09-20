@@ -1,22 +1,23 @@
 'use client';
 
+import Link from "next/link";
 import styles from "./menu.module.scss";
 
 const Menu = () => {
   return (
     <nav className={styles.menu}>
-      <a href="/" className={styles.item}>
+      <Link href="/" className={styles.item}>
         Home
-      </a>
-      <a href="/about" className={styles.item}>
+      </Link>
+      <Link href="/about" className={styles.item}>
         About
-      </a>
-      <a href="/projects" className={styles.item}>
+      </Link>
+      <Link href="/projects" className={styles.item}>
         Projects
-      </a>
-      <a href="/contact" className={styles.item}>
+      </Link>
+      <Link href="/contact" className={styles.item}>
         Contact
-      </a>
+      </Link>
     </nav>
   );
 };

@@ -7,13 +7,20 @@ function randomBetween(a: number, b: number) {
   return Math.random() * (b - a) + a;
 }
 
-function distance(a: any, b: any) {
+type Point = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+};
+
+function distance(a: Point, b: Point) {
   return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
 }
 
 export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasElement>) {
-  const points = useRef<any[]>([]);
-  const mouse = useRef({ x: 0, y: 0 });
+  const points = useRef<Point[]>([]);
+  const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -65,7 +72,8 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
 
       // Linha do mouse para pontos próximos (mesma cor das linhas)
       for (let p of points.current) {
-        const d = distance(p, mouse.current);
+        const mousePoint: Point = { x: mouse.current.x, y: mouse.current.y, vx: 0, vy: 0 };
+        const d = distance(p, mousePoint);
         if (d < LINE_DISTANCE) {
           ctx.strokeStyle = `rgba(100,100,100,${0.25 * (1 - d / LINE_DISTANCE)})`;
           ctx.beginPath();
@@ -76,7 +84,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
       }
 
       // Pontos menores e discretos
-      for (let p of points.current) {
+      for (const p of points.current) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 1);
         ctx.fillStyle = "#888888ff";
