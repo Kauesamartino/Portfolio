@@ -3,11 +3,7 @@
     gap: 40px;
 
     .item{
-        color: #fff;
-    }
-
-    .item:hover{
-        color: #e2e8f0;
-        transition: color 0.3s ease;
+        color: #000;
+        font-weight: bold;
     }
 }

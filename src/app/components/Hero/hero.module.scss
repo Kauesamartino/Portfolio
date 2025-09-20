@@ -5,7 +5,7 @@
   align-items: center;
   padding: 0 90px;
   overflow: hidden;
-  background: #fff;
+  background: #f4f4f4;
 }
 
 .bgCanvas {
@@ -14,7 +14,7 @@
   width: 100%;
   height: 100%;
   display: block;
-  z-index: 0;
+  pointer-events: none;
 }
 
 .personalInfo {

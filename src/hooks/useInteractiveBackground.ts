@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 
-const POINTS = 40;
-const LINE_DISTANCE = 120;
+const POINTS = 80;
+const LINE_DISTANCE = 100;
 
 function randomBetween(a: number, b: number) {
   return Math.random() * (b - a) + a;
@@ -31,8 +31,8 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
     points.current = Array.from({ length: POINTS }, () => ({
       x: randomBetween(0, canvas.width),
       y: randomBetween(0, canvas.height),
-      vx: randomBetween(-0.3, 0.3),
-      vy: randomBetween(-0.3, 0.3),
+      vx: randomBetween(-0.2, 0.2),
+      vy: randomBetween(-0.2, 0.2),
     }));
 
     function animate() {
@@ -46,13 +46,15 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
       }
 
+      // Linhas entre pontos
+      ctx.lineWidth = 0.7;
       for (let i = 0; i < points.current.length; i++) {
         for (let j = i + 1; j < points.current.length; j++) {
           const a = points.current[i];
           const b = points.current[j];
           const d = distance(a, b);
           if (d < LINE_DISTANCE) {
-            ctx.strokeStyle = `rgba(100,100,100,${1 - d / LINE_DISTANCE})`;
+            ctx.strokeStyle = `rgba(100,100,100,${0.25 * (1 - d / LINE_DISTANCE)})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -61,10 +63,11 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
         }
       }
 
+      // Linha do mouse para pontos próximos (mesma cor das linhas)
       for (let p of points.current) {
         const d = distance(p, mouse.current);
         if (d < LINE_DISTANCE) {
-          ctx.strokeStyle = `rgba(0,150,255,${1 - d / LINE_DISTANCE})`;
+          ctx.strokeStyle = `rgba(100,100,100,${0.25 * (1 - d / LINE_DISTANCE)})`;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.current.x, mouse.current.y);
@@ -72,13 +75,12 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
         }
       }
 
+      // Pontos menores e discretos
       for (let p of points.current) {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = "#222";
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 1);
+        ctx.fillStyle = "#888888ff";
         ctx.fill();
-        ctx.strokeStyle = "#fff";
-        ctx.stroke();
       }
 
       requestAnimationFrame(animate);
