@@ -2,7 +2,7 @@
     position: relative;
     z-index: 1;
     display: flex;
-    height: 100px;
+    height: 120px;
     align-items: center;
     justify-content: center;
     background-color: #ebebeb;
@@ -13,11 +13,13 @@
     width: 100%;
     justify-content: space-around;
     flex-wrap: wrap;
+    row-gap: 18px;
 }
+
 
 .item {
     color: rgb(139, 139, 139);
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 500;
     letter-spacing: 1.5px;
     flex: 1 1 33%;
