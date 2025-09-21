@@ -2,6 +2,7 @@
 import InteractiveBackground from "./components/interactiveBackground";
 import { Hero } from "./components/Hero";
 import { Skills } from "./components/Skills";
+import { About } from "./components/About";
 import style from './page.module.scss'
 
 export default function Page() {
@@ -11,6 +12,7 @@ export default function Page() {
             <main className={style.main}>
                 <Hero />
                 <Skills />
+                <About />
             </main>
         </>
     );

@@ -1,0 +1,26 @@
+.section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    .title {
+        margin-top: 100px;
+        font-size: 48px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .description {
+        margin: 0 auto;
+        font-size: 20px;
+        text-align: left;
+        color: rgb(120, 120, 120);
+        line-height: 1.6;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 1;
+    }
+}
