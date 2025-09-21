@@ -1,9 +1,112 @@
-.menu{
+
+.menu {
     display: flex;
     gap: 40px;
+}
 
-    .item{
-        color: #000;
-        font-weight: bold;
+.item {
+    color: #000;
+    font-weight: bold;
+}
+
+// Hamburguer styles
+.hamburgerWrapper {
+    position: relative;
+    z-index: 1002;
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1003;
+    position: relative;
+}
+.bar {
+    width: 28px;
+    height: 3px;
+    background: #333;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+}
+.hamburger .bar1 {
+    transform: translateY(0) rotate(0);
+}
+.hamburger .bar2 {
+    opacity: 1;
+}
+.hamburger .bar3 {
+    transform: translateY(0) rotate(0);
+}
+.hamburger.open .bar1 {
+    transform: translateY(11px) rotate(45deg);
+}
+.hamburger.open .bar2 {
+    opacity: 0;
+}
+.hamburger.open .bar3 {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+.menuMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 1002;
+    animation: slideInRight 0.35s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.menuMobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menuMobile li {
+    margin: 24px 0;
+}
+.menuMobile a {
+    color: #333;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.menuMobile a:hover {
+    color: #0070f3;
+}
+@keyframes slideInRight {
+    from {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.slideOut {
+    animation: slideOutLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100vw);
+        opacity: 0;
     }
 }

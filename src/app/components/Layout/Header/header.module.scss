@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     background-color: #3c3c3c00;
     width: 100%;
@@ -6,12 +6,41 @@
     position: fixed;
     overflow: hidden;
     justify-content: space-between;
-    padding: 30px 90px 30px 90px;
+    padding: 0 30px;
     z-index: 10;
 
-    .container{
+    .container {
         display: flex;
         align-items: center;
         gap: 60px;
+    }
+
+    .menuWrapper {
+        display: flex;
+        align-items: center;
+        gap: 0;
+    }
+
+    .menuWrapper :global(.menu) {
+        display: none !important;
+    }
+
+    .menuWrapper :global(.hamburgerWrapper) {
+        display: block !important;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .header {
+        padding: 0 90px;
+    }
+
+    .menuWrapper :global(.menu) {
+        display: flex !important;
+    }
+
+    .menuWrapper :global(.hamburgerWrapper) {
+        display: none !important;
     }
 }
