@@ -1,9 +1,6 @@
 .section {
     position: relative;
     z-index: 1;
-}
-
-.section {
     display: flex;
     height: 100px;
     align-items: center;
@@ -15,6 +12,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .item {
@@ -22,17 +20,21 @@
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 1.5px;
+    flex: 1 1 33%;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+
+.item:nth-child(3n+1) {
+    clear: left;
+}
 
 
 @media screen and (min-width: 1200px) {
     .section {
         position: relative;
         z-index: 1;
-    }
-
-    .section {
         display: flex;
         height: 120px;
         align-items: center;
@@ -44,6 +46,7 @@
         display: flex;
         width: 100%;
         justify-content: space-around;
+        flex-wrap: nowrap;
     }
 
     .item {
@@ -51,5 +54,7 @@
         font-size: 28px;
         font-weight: 500;
         letter-spacing: 1.5px;
+        flex: unset;
+        text-align: unset;
     }
 }
