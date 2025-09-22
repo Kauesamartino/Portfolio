@@ -1,21 +1,49 @@
 import Link from 'next/link';
 import style from './projects.module.scss';
+import projects from '@/data/projects.json';
 
 export const Projects = () => {
-
     return (
         <section className={style.section}>
             <h1 className={style.title}>My Projects</h1>
             <div className={style.flex}>
-                <Link href="https://safe-flood.vercel.app/" target="_blank" rel="noopener noreferrer" className={style.containerImage} style={{ backgroundImage: "url(/safe-flood.vercel.app_.png)" }}>
-                    <div className={style.overlay}>
-                        SafeFlood
+                {projects.map((project, idx) => (
+                    <div key={project.id} className={style.project}>
+                        {idx % 2 === 0 ? (
+                            <>
+                                <Link
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={style.containerImage}
+                                    style={{ backgroundImage: `url(${project.image})` }}
+                                >
+                                    <div className={style.overlay}>{project.name}</div>
+                                </Link>
+                                <div className={style.container}>
+                                    <h2 className={style.title}>{project.name}</h2>
+                                    <p className={style.description}>{project.description}</p>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className={style.container}>
+                                    <h2 className={style.title}>{project.name}</h2>
+                                    <p className={style.description}>{project.description}</p>
+                                </div>
+                                <Link
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={style.containerImage}
+                                    style={{ backgroundImage: `url(${project.image})` }}
+                                >
+                                    <div className={style.overlay}>{project.name}</div>
+                                </Link>
+                            </>
+                        )}
                     </div>
-                </Link>
-                <div className={style.container}>
-                    <h2 className={style.title}>SafeFlood</h2>
-                    <p className={style.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit reiciendis neque molestias veritatis, aperiam minima ab in culpa corporis sapiente tempore incidunt ipsum adipisci minus provident id distinctio ex. Quae.</p>
-                </div>
+                ))}
             </div>
         </section>
     );
