@@ -14,13 +14,7 @@ interface Project {
     technologies: string[];
 }
 
-type PageProps = {
-    params: {
-        id: string;
-    };
-};
-
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: { id: string } }) {
     // Garante que o id seja comparado corretamente
     const project = (projects as Project[]).find(
         (p) => String(p.id) === String(params.id)
