@@ -17,9 +17,7 @@ export const Projects = () => {
                         }
                     >
                         <Link
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href={`/project/${project.id}`}
                             className={style.containerImage}
                             style={{ backgroundImage: `url(${project.image})` }}
                         >
