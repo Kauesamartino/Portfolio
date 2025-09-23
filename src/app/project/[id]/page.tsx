@@ -5,12 +5,11 @@ import Link from 'next/link';
 import InteractiveBackground from '@/app/components/interactiveBackground';
 
 
-export default function ProjectPage(props: { params: { id: string } }) {
-  const { params } = props;
+export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find(p => String(p.id) === params.id);
 
   if (!project) {
-      return <div>Project not found.</div>;
+    return <div>Project not found.</div>;
   }
 
   return (
