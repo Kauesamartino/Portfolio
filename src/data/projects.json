@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "SafeFlood",
     "description": "SafeFlood is a platform that provides real-time flood risk alerts, offering detailed information about affected areas, weather forecasts, and safety tips. The project uses reliable data sources and features an intuitive interface to help people stay safe.",
     "image": "/safe-flood.vercel.app_.png",
@@ -15,7 +15,7 @@
     ]
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Sentinel",
     "description": "An innovative incident management system for subways developed for Motiva (formerly CCR). The project used cameras connected to a Raspberry Pi to identify anomalous situations and report them in real time.",
     "image": "/sentinel.png",

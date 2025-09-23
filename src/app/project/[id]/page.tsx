@@ -1,26 +1,16 @@
+'use client';
+
 import projects from '@/data/projects.json';
 import { Button } from '@/app/components/Button';
 import style from './project.module.scss';
 import Link from 'next/link';
 import InteractiveBackground from '@/app/components/interactiveBackground';
+import { useParams } from 'next/navigation';
 
-// Tipagem explícita para garantir compatibilidade
+export default function Page() {
 
-interface Project {
-    id: string;
-    name: string;
-    description: string;
-    image: string;
-    url: string;
-    technologies: string[];
-}
-
-
-export default function Page({ params }: { params: { id: string } }) {
-    // Busca o projeto pelo id (agora string)
-    const project = (projects as Project[]).find(
-        (p) => p.id === params.id
-    );
+    const { id } = useParams();
+    const project = projects.find(p => p.id === Number(id));
 
     if (!project) {
         return <div>Project not found.</div>;
