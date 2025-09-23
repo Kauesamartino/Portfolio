@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "SafeFlood",
-    "description": "SafeFlood é uma plataforma que alerta sobre riscos de enchentes em tempo real, fornecendo informações detalhadas sobre áreas afetadas, previsões meteorológicas e dicas de segurança. O projeto utiliza dados de fontes confiáveis e apresenta uma interface intuitiva para ajudar a população a se proteger.",
+    "description": "SafeFlood is a platform that provides real-time flood risk alerts, offering detailed information about affected areas, weather forecasts, and safety tips. The project uses reliable data sources and features an intuitive interface to help people stay safe.",
     "image": "/safe-flood.vercel.app_.png",
     "url": "https://safe-flood.vercel.app/",
     "technologies": [
@@ -10,14 +10,14 @@
       "React",
       "TypeScript",
       "Java",
-      "APIs Meteorológicas",
+      "Weather APIs",
       "PostgreSQL"
     ]
   },
   {
     "id": 2,
     "name": "Sentinel",
-    "description": "um sistema inovador de gerenciamento de ocorrências em metrôs desenvolvido para a Motiva (antiga CCR). O projeto utilizava câmeras conectadas a um Raspberry Pi para identificar situações anômalas e reportá-las em tempo real.",
+    "description": "An innovative incident management system for subways developed for Motiva (formerly CCR). The project used cameras connected to a Raspberry Pi to identify anomalous situations and report them in real time.",
     "image": "/sentinel.png",
     "url": "https://sentinel.vercel.app/",
     "technologies": [
