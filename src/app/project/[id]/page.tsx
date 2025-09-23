@@ -4,7 +4,11 @@ import style from './project.module.scss';
 import Link from 'next/link';
 import InteractiveBackground from '@/app/components/interactiveBackground';
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+interface ProjectPageParams {
+    id: string;
+}
+
+export default function ProjectPage({ params }: { params: ProjectPageParams }) {
     const project = projects.find(p => String(p.id) === params.id);
 
     if (!project) {
