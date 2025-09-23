@@ -6,7 +6,7 @@ import InteractiveBackground from '@/app/components/interactiveBackground';
 
 
 export default function Page({ params }: { params: { id: string } }) {
-  const project = projects.find(p => String(p.id) === params.id);
+  const project = projects.find(p => String(p.id) === String(params.id));
 
   if (!project) {
     return <div>Project not found.</div>;
