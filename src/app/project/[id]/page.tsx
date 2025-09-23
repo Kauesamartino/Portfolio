@@ -5,8 +5,9 @@ import Link from 'next/link';
 import InteractiveBackground from '@/app/components/interactiveBackground';
 
 // Tipagem explícita para garantir compatibilidade
+
 interface Project {
-    id: number | string;
+    id: string;
     name: string;
     description: string;
     image: string;
@@ -14,10 +15,11 @@ interface Project {
     technologies: string[];
 }
 
+
 export default function Page({ params }: { params: { id: string } }) {
-    // Garante que o id seja comparado corretamente
+    // Busca o projeto pelo id (agora string)
     const project = (projects as Project[]).find(
-        (p) => String(p.id) === String(params.id)
+        (p) => p.id === params.id
     );
 
     if (!project) {
