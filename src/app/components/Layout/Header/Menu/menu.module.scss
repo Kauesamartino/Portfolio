@@ -13,6 +13,10 @@
     color: #fff;
 }
 
+:global(.dark) .menu {
+    background: var(--header-bg, #18181b);
+}
+
 // Hamburguer styles
 .hamburgerWrapper {
     position: relative;
@@ -31,6 +35,77 @@
     z-index: 1003;
     position: relative;
 }
+
+.hamburger .bar {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 3px 0;
+    border-radius: 2px;
+    background: #000;
+    transition: background 0.2s;
+}
+
+:global(.dark) .hamburger .bar {
+    background: #fff;
+}
+
+:global(.dark) .hamburger {
+    background: #232136;
+}
+
+.menuMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 1002;
+    padding: 8rem 3rem;
+    animation: slideInRight 0.35s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+}
+
+:global(.dark) .menuMobile {
+    background: #232136;
+}
+
+.menuMobile ul {
+    display: flex;
+    flex-direction: column;
+}
+.menuMobile li {
+    margin: 22px 0;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideOut {
+    animation: slideOutLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+}
+
 .menuMobile a {
     font-size: 2.7rem;
     text-decoration: none;
@@ -58,48 +133,4 @@
 }
 .hamburger.open .bar3 {
     transform: translateY(-11px) rotate(-45deg);
-}
-
-.menuMobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #fff;
-    z-index: 1002;
-    padding: 8rem 3rem;
-    animation: slideInRight 0.35s cubic-bezier(0.4,0,0.2,1);
-    display: flex;
-    flex-direction: column;
-}
-.menuMobile ul {
-    display: flex;
-    flex-direction: column;
-}
-.menuMobile li {
-    margin: 22px 0;
-}
-@keyframes slideInRight {
-    from {
-        transform: translateX(-100vw);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-.slideOut {
-    animation: slideOutLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-@keyframes slideOutLeft {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-100vw);
-        opacity: 0;
-    }
 }
