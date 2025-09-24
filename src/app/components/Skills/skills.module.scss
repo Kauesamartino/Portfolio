@@ -5,7 +5,7 @@
     height: 120px;
     align-items: center;
     justify-content: center;
-    background-color: #ebebeb;
+    background-color: var(--skills-bg, #ebebeb);
 }
 
 .list {
@@ -18,7 +18,7 @@
 
 
 .item {
-    color: rgb(139, 139, 139);
+    color: var(--skills-text, rgb(139, 139, 139));
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 1.5px;
@@ -41,7 +41,7 @@
         height: 120px;
         align-items: center;
         justify-content: center;
-        background-color: #ebebeb;
+        background-color: var(--skills-bg, #ebebeb);
     }
 
     .list {
@@ -52,7 +52,7 @@
     }
 
     .item {
-        color: rgb(139, 139, 139);
+        color: var(--skills-text, rgb(139, 139, 139));
         font-size: 28px;
         font-weight: 500;
         letter-spacing: 1.5px;

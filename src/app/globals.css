@@ -1,3 +1,37 @@
+:root {
+	--bg: #fff;
+	--text: #222;
+	--text-secondary: rgb(120, 120, 120);
+	--header-bg: #3c3c3c00;
+	--skills-bg: #ebebeb;
+	--skills-text: rgb(139, 139, 139);
+	--bg-interactive: #888;
+	--line-interactive: 100,100,100;
+}
+
+.dark {
+	--bg: #18181b;
+	--text: #fafafa;
+	--text-secondary: #b8b8b8;
+	--header-bg: #18181b;
+	--skills-bg: #232136;
+	--skills-text: #a259ff;
+	--bg-interactive: #a259ff;
+	--line-interactive: 162,89,255;
+}
+:root {
+	--bg: #fff;
+	--text: #222;
+	--bg-interactive: #888;
+	--line-interactive: 100,100,100;
+}
+
+.dark {
+	--bg: #18181b;
+	--text: #fafafa;
+	--bg-interactive: #a259ff;
+	--line-interactive: 162,89,255;
+}
 /* CSS Reset - Eric Meyer Reset 2.0 + ajustes modernos */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -26,6 +60,19 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+	background: var(--bg);
+	color: var(--text);
+	transition: background 0.3s, color 0.3s;
+}
+
+:root {
+	--bg: #fff;
+	--text: #222;
+}
+
+.dark {
+	--bg: #18181b;
+	--text: #fafafa;
 }
 ol, ul {
 	list-style: none;

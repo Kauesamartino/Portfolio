@@ -42,6 +42,16 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
       vy: randomBetween(-0.2, 0.2),
     }));
 
+    function getBgColor() {
+      // Pega cor do CSS custom property
+      return getComputedStyle(document.documentElement).getPropertyValue('--bg-interactive').trim() || '#888';
+    }
+    function getLineColor(alpha: number) {
+      // Pega cor do CSS custom property
+      const color = getComputedStyle(document.documentElement).getPropertyValue('--line-interactive').trim() || '100,100,100';
+      return `rgba(${color},${alpha})`;
+    }
+
     function animate() {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -60,7 +70,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
           const b = points.current[j];
           const d = distance(a, b);
           if (d < LINE_DISTANCE) {
-            ctx.strokeStyle = `rgba(100,100,100,${0.25 * (1 - d / LINE_DISTANCE)})`;
+            ctx.strokeStyle = getLineColor(0.25 * (1 - d / LINE_DISTANCE));
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -72,7 +82,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
       for (const p of points.current) {
         const d = distance(p, mouse.current);
         if (d < LINE_DISTANCE) {
-          ctx.strokeStyle = `rgba(100,100,100,${0.35 * (1 - d / LINE_DISTANCE)})`;
+          ctx.strokeStyle = getLineColor(0.35 * (1 - d / LINE_DISTANCE));
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.current.x, mouse.current.y);
@@ -83,7 +93,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
       for (const p of points.current) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "#888";
+        ctx.fillStyle = getBgColor();
         ctx.fill();
       }
 

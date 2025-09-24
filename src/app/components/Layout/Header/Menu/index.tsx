@@ -73,7 +73,9 @@ const Menu: React.FC = () => {
             {menuItems.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} onClick={handleToggle}>
-                  {item.label}
+                  <p>
+                    {item.label}
+                  </p>
                 </Link>
               </li>
             ))}
