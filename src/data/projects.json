@@ -5,6 +5,8 @@
     "description": "SafeFlood is a platform that provides real-time flood risk alerts, offering detailed information about affected areas, weather forecasts, and safety tips. The project uses reliable data sources and features an intuitive interface to help people stay safe.",
     "image": "/safe-flood.vercel.app_.png",
     "url": "https://safe-flood.vercel.app/",
+    "width": 600,
+    "height": 370,
     "technologies": [
       "Next.js",
       "React",
@@ -19,7 +21,9 @@
     "name": "Sentinel",
     "description": "An innovative incident management system for subways developed for Motiva (formerly CCR). The project used cameras connected to a Raspberry Pi to identify anomalous situations and report them in real time.",
     "image": "/sentinel.png",
-    "url": "https://sentinel.vercel.app/",
+    "url": "/https://sentinel.vercel.app/",
+    "width": 600,
+    "height": 370,
     "technologies": [
       "Next.js",
       "React",
@@ -28,6 +32,23 @@
       "AWS Rekognition",
       "AWS S3",
       "Nhost/PostgreSQL"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Sentinel API",
+    "description": "The API backend for the Sentinel project, providing endpoints for real-time incident data and analytics.",
+    "image": "/Sentinel-API.png",
+    "url": "https://github.com/Kauesamartino/Sentinel-API",
+    "width": 600,
+    "height": 370,
+    "technologies": [
+      "Java 24",
+      "Java Spring Framework",
+      "FlywayDB",
+      "PostgreSQL",
+      "OpenAPI",
+      "Docker"
     ]
   }
 ]
