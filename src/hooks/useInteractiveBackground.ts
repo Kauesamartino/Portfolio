@@ -7,8 +7,8 @@ type Point = {
   vy: number;
 };
 
-const POINTS = 80;
-const LINE_DISTANCE = 100;
+const POINTS = 150;
+const LINE_DISTANCE = 150;
 
 function randomBetween(a: number, b: number) {
   return Math.random() * (b - a) + a;
@@ -70,7 +70,7 @@ export function useInteractiveBackground(canvasRef: React.RefObject<HTMLCanvasEl
           const b = points.current[j];
           const d = distance(a, b);
           if (d < LINE_DISTANCE) {
-            ctx.strokeStyle = getLineColor(0.25 * (1 - d / LINE_DISTANCE));
+            ctx.strokeStyle = getLineColor(0.5 * (1 - d / LINE_DISTANCE));
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
