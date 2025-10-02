@@ -127,7 +127,7 @@
     }
 
     .section {
-        border: 1px solid #000;
+        border-top: 2px solid var(--skills-text, rgb(139, 139, 139));
         padding: 90px 90px 0 90px;
         gap: 90px;
 
