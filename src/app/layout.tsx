@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/Layout/Header";
 
 export const metadata: Metadata = {
   title: "Kaue Samartino Portfolio",
@@ -13,10 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className="light" suppressHydrationWarning>
+    <html lang="pt-BR" className="light" suppressHydrationWarning>
       <body className="transition-colors duration-200">
-        <Header />
-        <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
+        {children}
       </body>
     </html>
   );

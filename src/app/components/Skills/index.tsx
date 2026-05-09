@@ -1,19 +1,15 @@
 import styles from './skills.module.scss';
 
-export const Skills = () => {
-  const skills = [
-    { key: 'java', label: 'Java' },
-    { key: 'react', label: 'React' },
-    { key: 'aws', label: 'AWS' },
-    { key: 'typescript', label: 'Typescript' },
-    { key: 'dotnet', label: '.NET' },
-    { key: 'golang', label: 'Golang' },
-  ];
+type SkillsProps = {
+  items: readonly string[];
+};
+
+export const Skills = ({ items }: SkillsProps) => {
   return (
-    <section className={styles.section}>
+    <section id="skills" className={styles.section}>
       <ul className={styles.list}>
-        {skills.map(skill => (
-          <li className={styles.item} key={skill.key}>{skill.label}</li>
+        {items.map((skill) => (
+          <li className={styles.item} key={skill}>{skill}</li>
         ))}
       </ul>
     </section>

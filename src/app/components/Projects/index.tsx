@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import style from './projects.module.scss';
-import projects from '@/data/projects.json';
+import { projects } from '@/data/projects';
+import type { Locale } from '@/i18n/config';
 
-export const Projects = () => {
+type ProjectsProps = {
+    locale: Locale;
+    title: string;
+};
+
+export const Projects = ({ locale, title }: ProjectsProps) => {
     return (
-        <section className={style.section}>
-            <h1 className={style.title}>My Projects</h1>
+        <section id="projects" className={style.section}>
+            <h1 className={style.title}>{title}</h1>
             <div className={style.flex}>
                 {projects.map((project, idx) => (
                     <div
@@ -17,7 +23,7 @@ export const Projects = () => {
                         }
                     >
                         <Link
-                            href={`/project/${project.id}`}
+                            href={`/${locale}/project/${project.id}`}
                             className={style.containerImage}
                             style={{ backgroundImage: `url(${project.image})` }}
                         >
@@ -25,7 +31,7 @@ export const Projects = () => {
                         </Link>
                         <div className={style.container}>
                             <h2 className={style.title}>{project.name}</h2>
-                            <p className={style.description}>{project.description}</p>
+                            <p className={style.description}>{project.description[locale]}</p>
                         </div>
                     </div>
                 ))}

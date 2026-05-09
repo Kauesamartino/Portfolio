@@ -2,7 +2,10 @@
   {
     "id": 1,
     "name": "SafeFlood",
-    "description": "SafeFlood is a platform that provides real-time flood risk alerts, offering detailed information about affected areas, weather forecasts, and safety tips. The project uses reliable data sources and features an intuitive interface to help people stay safe.",
+    "description": {
+      "pt": "SafeFlood e uma plataforma que fornece alertas de risco de enchente em tempo real, com informacoes detalhadas sobre areas afetadas, previsao do tempo e orientacoes de seguranca.",
+      "en": "SafeFlood is a platform that provides real-time flood risk alerts, offering detailed information about affected areas, weather forecasts, and safety tips."
+    },
     "image": "/safe-flood.vercel.app_.png",
     "url": "https://safe-flood.vercel.app/",
     "width": 600,
@@ -19,9 +22,12 @@
   {
     "id": 2,
     "name": "Sentinel",
-    "description": "An innovative incident management system for subways developed for Motiva (formerly CCR). The project used cameras connected to a Raspberry Pi to identify anomalous situations and report them in real time.",
+    "description": {
+      "pt": "Um sistema inovador de gestao de incidentes para o ambiente metroviario, desenvolvido para a Motiva. O projeto usou cameras conectadas a um Raspberry Pi para identificar situacoes anomalas e reporta-las em tempo real.",
+      "en": "An innovative incident management system for subways developed for Motiva (formerly CCR). The project used cameras connected to a Raspberry Pi to identify anomalous situations and report them in real time."
+    },
     "image": "/sentinel.png",
-    "url": "/https://sentinel-nine-nu.vercel.app/",
+    "url": "https://sentinel-nine-nu.vercel.app/",
     "width": 600,
     "height": 370,
     "technologies": [
@@ -37,7 +43,10 @@
   {
     "id": 3,
     "name": "Sentinel API",
-    "description": "The API backend for the Sentinel project, providing endpoints for real-time incident data and analytics.",
+    "description": {
+      "pt": "Backend em API para o projeto Sentinel, responsavel por expor endpoints para dados de incidentes em tempo real e analises operacionais.",
+      "en": "The API backend for the Sentinel project, providing endpoints for real-time incident data and analytics."
+    },
     "image": "/Sentinel-API.png",
     "url": "https://github.com/Kauesamartino/Sentinel-API",
     "width": 600,

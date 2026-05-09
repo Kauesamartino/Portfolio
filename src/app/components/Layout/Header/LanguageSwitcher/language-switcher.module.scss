@@ -1,0 +1,27 @@
+.switcher {
+    min-width: 48px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+    background: transparent;
+    color: #000;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.switcher:hover {
+    background: rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+}
+
+:global(.dark) .switcher {
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+}
+
+:global(.dark) .switcher:hover {
+    background: rgba(255, 255, 255, 0.08);
+}

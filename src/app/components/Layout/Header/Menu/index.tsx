@@ -4,18 +4,30 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./menu.module.scss";
+import type { Locale } from "@/i18n/config";
 
-const menuItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Contact", href: "/contact" },
-];
+type MenuProps = {
+  locale: Locale;
+  labels: {
+    home: string;
+    skills: string;
+    about: string;
+    projects: string;
+    openMenu: string;
+    closeMenu: string;
+  };
+};
 
-const Menu: React.FC = () => {
+const Menu: React.FC<MenuProps> = ({ locale, labels }) => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
+  const menuItems = [
+    { label: labels.home, href: `/${locale}` },
+    { label: labels.skills, href: `/${locale}#skills` },
+    { label: labels.about, href: `/${locale}#about` },
+    { label: labels.projects, href: `/${locale}#projects` },
+  ];
 
   useEffect(() => {
     const checkScreen = () => {
@@ -56,7 +68,7 @@ const Menu: React.FC = () => {
     <div className={styles.hamburgerWrapper}>
       <button
         className={open && !closing ? `${styles.hamburger} ${styles.open}` : styles.hamburger}
-        aria-label={open && !closing ? "Fechar menu" : "Abrir menu"}
+        aria-label={open && !closing ? labels.closeMenu : labels.openMenu}
         onClick={handleToggle}
       >
         <span className={styles.bar + " " + styles.bar1}></span>
